@@ -1,6 +1,6 @@
 # Todo Application
 
-Given an `app.js` file and an empty database file `todoApplication.db`.
+Given an `app.js` file and an empty database file `contact.db`.
 
 Create a table with the name `todo` with the following columns,
 
@@ -8,107 +8,23 @@ Create a table with the name `todo` with the following columns,
 
 | Column   | Type    |
 | -------- | ------- |
-| id       | INTEGER |
-| todo     | TEXT    |
-| priority | TEXT    |
-| status   | TEXT    |
+| id       | VARCHAR |
+| name     | VARCHAR |
+| email    | VARCHAR |
+| contact  | VARCHAR |
 
-and write APIs to perform operations on the table `todo`,
+and write APIs to perform operations on the table `contacts`,
 
-<MultiLineNote>
-  
-  - Replace the spaces in URL with `%20`.
-  - Possible values for `priority` are `HIGH`, `MEDIUM`, and `LOW`.
-  - Possible values for `status` are `TO DO`, `IN PROGRESS`, and `DONE`.
-</MultiLineNote>
 
 ### API 1
 
-#### Path: `/todos/`
+#### Path: `/contacts/`
 
 #### Method: `GET`
 
-- **Scenario 1**
-
-  - **Sample API**
-    ```
-    /todos/?status=TO%20DO
-    ```
   - **Description**:
 
-    Returns a list of all todos whose status is 'TO DO'
-
-  - **Response**
-
-    ```
-    [
-      {
-        id: 1,
-        todo: "Watch Movie",
-        priority: "LOW",
-        status: "TO DO"
-      },
-      ...
-    ]
-    ```
-
-- **Scenario 2**
-
-  - **Sample API**
-    ```
-    /todos/?priority=HIGH
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose priority is 'HIGH'
-
-  - **Response**
-
-    ```
-    [
-      {
-        id: 2,
-        todo: "Learn Node JS",
-        priority: "HIGH",
-        status: "IN PROGRESS"
-      },
-      ...
-    ]
-    ```
-
-- **Scenario 3**
-
-  - **Sample API**
-    ```
-    /todos/?priority=HIGH&status=IN%20PROGRESS
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose priority is 'HIGH' and status is 'IN PROGRESS'
-
-  - **Response**
-
-    ```
-    [
-      {
-        id: 2,
-        todo: "Learn Node JS",
-        priority: "HIGH",
-        status: "IN PROGRESS"
-      },
-      ...
-    ]
-    ```
-
-- **Scenario 4**
-
-  - **Sample API**
-    ```
-    /todos/?search_q=Play
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose todo contains 'Play' text
+    Returns a list of all Contacts 
 
   - **Response**
 
@@ -116,9 +32,9 @@ and write APIs to perform operations on the table `todo`,
     [
       {
         id: 4,
-        todo: "Play volleyball",
-        priority: "MEDIUM",
-        status: "DONE"
+        name: "Play volleyball",
+        email: "MEDIUM@gmail.com",
+       contact: "90404958475"
       },
       ...
     ]
@@ -126,118 +42,88 @@ and write APIs to perform operations on the table `todo`,
 
 ### API 2
 
-#### Path: `/todos/:todoId/`
+#### Path: `/contacts/:id/`
 
 #### Method: `GET`
 
 #### Description:
 
-Returns a specific todo based on the todo ID
+Returns a specific contact based on the  ID
 
 #### Response
 
 ```
 {
   id: 2,
-  todo: "Learn JavaScript",
-  priority: "HIGH",
-  status: "DONE"
+  name: "Learn JavaScript",
+  email: "HIGH@gmail.com",
+  contact: "85694896479"
 }
 ```
 
 ### API 3
 
-#### Path: `/todos/`
+#### Path: `/contacts/`
 
 #### Method: `POST`
 
 #### Description:
 
-Create a todo in the todo table,
+Create a contacts in the todo table,
 
 #### Request
 
 ```
 {
   "id": 10,
-  "todo": "Finalize event theme",
-  "priority": "LOW",
-  "status": "TO DO"
+  "name": "Finalize event theme",
+  "email": "LOW@gmail.com",
+  "contact": "857946798"
 }
 ```
 
 #### Response
 
 ```
-Todo Successfully Added
+Contact Successfully Added
 ```
 
 ### API 4
 
-#### Path: `/todos/:todoId/`
+#### Path: `/contacts/:id/`
 
 #### Method: `PUT`
 
 #### Description:
 
-Updates the details of a specific todo based on the todo ID
-
-- **Scenario 1**
+Updates the details of a specific contact based on the  ID
 
   - **Request**
     ```
     {
-      "status": "DONE"
+      "name: "yadava"
     }
     ```
   - **Response**
 
     ```
-    Status Updated
-    ```
-
-- **Scenario 2**
-
-  - **Request**
-    ```
-    {
-      "priority": "HIGH"
-    }
-    ```
-  - **Response**
-
-    ```
-    Priority Updated
-    ```
-
-- **Scenario 3**
-
-  - **Request**
-    ```
-    {
-      "todo": "Some task"
-    }
-    ```
-  - **Response**
-
-    ```
-    Todo Updated
+    Contact  Updated Succesfully
     ```
 
 ### API 5
 
-#### Path: `/todos/:todoId/`
+#### Path: `/contacts/:id/`
 
 #### Method: `DELETE`
 
 #### Description:
 
-Deletes a todo from the todo table based on the todo ID
+Deletes a contact from the based on the contact ID
 
 #### Response
 
 ```
-Todo Deleted
+Contact Deleted Succesfully
 ```
 
 <br/>
